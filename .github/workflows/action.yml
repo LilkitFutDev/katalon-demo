@@ -17,3 +17,28 @@ jobs:
           projectPath: '${{ github.workspace }}'
           args: '-noSplash -retry=0 -browserType=Chrome -statusDelay=15 -testSuitePath="Test Suites/TS_RegressionTest" -apiKey= ${{ secrets.KATALON_API_KEY }} --config -webui.autoUpdateDrivers=true'
 
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+
+    - name: Schedule test run with mixed data
+      uses: LilkitFutDev/aws-devicefarm/test-application@master
+      with:
+        name: schedule-run
+        file_artifacts: |
+          Test spec file.yml
+          Customer Artifacts.zip
+        project_arn: ${{ secrets.AWS_PROJECT_ARN }}
+ 
+        
+  
+        test_type: APPIUM_WEB_JAVA_JUNIT
+        test_package_file: https://github.com/LilkitFutDev/katalon-demo/releases/download/test/zip-with-dependencies.zip
+        test_package_type: APPIUM_JAVA_TEST_PACKAGE
+        
+      
+        remote_src: true
