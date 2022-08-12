@@ -40,5 +40,4 @@ jobs:
         test_package_file: https://github.com/LilkitFutDev/katalon-demo/releases/download/test/zip-with-dependencies.zip
         test_package_type: APPIUM_JAVA_TEST_PACKAGE
         
-      
         remote_src: true
