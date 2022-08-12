@@ -36,7 +36,7 @@ jobs:
  
         
         device_pool_arn: x
-        test_type: APPIUM_WEB_JAVA_JUNIT
+        test_type: APPIUM_JAVA_JUNIT_TEST_PACKAGE
         test_package_file: https://github.com/LilkitFutDev/katalon-demo/releases/download/test/zip-with-dependencies.zip
         test_package_type: APPIUM_JAVA_TEST_PACKAGE
         
