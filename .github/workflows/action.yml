@@ -33,7 +33,7 @@ jobs:
           Test spec file.yml
           Customer Artifacts.zip
         project_arn: ${{ secrets.AWS_PROJECT_ARN }}
- 
+        expires_in_seconds: 3000
       
         test_type: APPIUM_JAVA_TESTNG
         test_package_file: https://github.com/LilkitFutDev/katalon-demo/releases/download/test/zip-with-dependencies.zip
